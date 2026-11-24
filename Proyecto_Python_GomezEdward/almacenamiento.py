@@ -38,3 +38,22 @@ def exportar_prescripcion(consulta):
     with open(CARPETA / nombre, "w", encoding="utf-8") as archivo:
         json.dump(consulta, archivo, indent=4, ensure_ascii=False)
     return nombre
+
+def exportar_datos_estadisticos(datos):
+
+    usuarios = []
+
+    for usuario in datos["usuarios"]:
+        usuarios.append({
+            "identificacion": usuario["identificacion"],
+            "rol": usuario["rol"]
+        })
+
+    archivos = {
+        "diagnosticos.json": datos["consultas"],
+        "usuarios.json": usuarios
+    }
+
+    for nombre, contenido in archivos.items():
+        with open (CARPETA / nombre, "w", encoding="utf-8") as archivo:
+            json.dump(contenido, archivo, indent=4, ensure_ascii=False)
