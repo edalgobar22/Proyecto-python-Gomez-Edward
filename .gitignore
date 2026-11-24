@@ -9,3 +9,8 @@ venv/
 
 # Prescripciones generadas durante el uso
 /prescripcion_*.json
+
+# Archivos regenerados por el reporte anual
+/diagnosticos.json
+/usuarios.json
+/reporte_anual_diagnosticos.json
