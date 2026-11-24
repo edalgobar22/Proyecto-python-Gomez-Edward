@@ -1,7 +1,7 @@
 from almacenamiento import cargar_datos, exportar_prescripcion
 from consultas import diagnosticar, historia_clinica
 from personas import login, registrar_paciente, registrar_usuario
-
+from reportes import reporte_anual_diagnosticos
 
 def menu(datos, usuario):
     """Muestra las opciones disponibles tras iniciar sesión y ejecuta la opción seleccionada.
@@ -15,6 +15,7 @@ def menu(datos, usuario):
         print("2. Registrar paciente")
         print("3. Diagnosticar paciente (médicos)")
         print("4. Consultar historia clínica")
+        print("5. Generar reporte anual de diagnósticos")
         print("0. Cerrar sesión")
         opcion = input("Opción: ")
         if opcion == "1":
@@ -25,6 +26,8 @@ def menu(datos, usuario):
             diagnosticar(datos, usuario)
         elif opcion == "4":
             historia_clinica(datos)
+        elif opcion == "5":
+            reporte_anual_diagnosticos()
         elif opcion != "0":
             print("Opción inválida.")
 
